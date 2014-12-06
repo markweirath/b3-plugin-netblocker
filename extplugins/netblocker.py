@@ -31,7 +31,7 @@ import b3.plugin
 import netblock
 
 # --------------------------------------------------------------------------------------------------
-class NetblockPlugin(b3.plugin.Plugin):
+class NetblockerPlugin(b3.plugin.Plugin):
     _adminPlugin = None
     _blocks = []
     # FrostBite Games depend on PB event to gather IP

@@ -8,11 +8,11 @@ from b3 import TEAM_UNKNOWN
 from b3.config import XmlConfigParser, CfgConfigParser
 from b3.plugins.admin import AdminPlugin
 from b3.update import B3version
-from netblock import NetblockPlugin
+from netblocker import NetblockPlugin
 from b3 import __version__ as b3_version
 
 
-DEFAULT_PLUGIN_CONFIG_FILE = os.path.join(os.path.dirname(__file__), '../extplugins/conf/netblock.ini')
+DEFAULT_PLUGIN_CONFIG_FILE = os.path.join(os.path.dirname(__file__), '../extplugins/conf/netblocker.ini')
 
 
 class logging_disabled(object):
