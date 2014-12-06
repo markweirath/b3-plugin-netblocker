@@ -8,7 +8,7 @@ from b3 import TEAM_UNKNOWN
 from b3.config import XmlConfigParser, CfgConfigParser
 from b3.plugins.admin import AdminPlugin
 from b3.update import B3version
-from netblocker import NetblockPlugin
+from netblocker import NetblockerPlugin
 from b3 import __version__ as b3_version
 
 
