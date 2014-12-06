@@ -92,7 +92,7 @@ class NetblockPlugin(b3.plugin.Plugin):
                 # convert each block
                 _b = netblock.convert(_block)
                 # check if clients ip is in the disallowed range
-                if _b[0] <= _ip <= _b[1]:
+                if _b[0] <= _ip[0] <= _b[1]:
                     # client not allowed to connect
                     self.debug('Client refused: %s - %s' % (client.name, client.ip))
                     message = "Netblocker: Client %s refused!" % client.name
