@@ -34,6 +34,8 @@ import netblock
 class NetblockPlugin(b3.plugin.Plugin):
     _adminPlugin = None
     _blocks = []
+    # FrostBite Games depend on PB event to gather IP
+    _frostBiteGameNames = ['bfbc2', 'moh', 'bf3', 'bf4']
 
 
     def startup(self):
@@ -47,6 +49,11 @@ class NetblockPlugin(b3.plugin.Plugin):
             # something is wrong, can't start without admin plugin
             self.error('Could not find admin plugin')
             return False
+
+        if self.console.gameName in self._frostBiteGameNames:
+            self.registerEvent(b3.events.EVT_PUNKBUSTER_NEW_CONNECTION)
+        else:
+            self.registerEvent(b3.events.EVT_CLIENT_AUTH)
 
         self.debug('Started')
 
