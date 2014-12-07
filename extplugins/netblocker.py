@@ -89,6 +89,11 @@ class NetblockerPlugin(b3.plugin.Plugin):
         except Exception, err:
             self.error(err)
         self.debug('Maximum level affected: %s' % self._maxLevel)
+        try:
+            self._blockBans = self.config.getboolean('settings', 'blockbans')
+        except Exception, err:
+            self.error(err)
+        self.debug('Block bans: %s' % self._blockBans)
 
     def onEvent(self, event):
         """\
@@ -110,15 +115,15 @@ class NetblockerPlugin(b3.plugin.Plugin):
             self.debug('%s is a higher level user, and allowed to connect' % client.name)
             return True
         # check for active bans and tempbans
-        elif client.ip in self.getBanIps():
-            message = 'Client refused: (%s) %s has an active Ban' % (client.name, client.ip)
-            self.console.say(message)
-            client.kick(silent=True)
+        elif self._blockBans and client.ip in self.getBanIps():
+            self.debug('Client refused: %s - %s' % (client.name, client.ip))
+            message = 'Netblocker: Client refused: %s (%s) has an active Ban' % (client.ip, client.name)
+            client.kick(message)
             return False
-        elif client.ip in self.getTempBanIps():
-            message = 'Client refused: (%s) %s has an active TempBan' % (client.name, client.ip)
-            self.console.say(message)
-            client.kick(silent=True)
+        elif self._blockBans and client.ip in self.getTempBanIps():
+            self.debug('Client refused: %s - %s' % (client.name, client.ip))
+            message = 'Netblocker: Client refused: %s (%s) has an active TempBan' % (client.ip, client.name)
+            client.kick(message)
             return False
         # apply the refused netblocks
         else:
@@ -131,10 +136,9 @@ class NetblockerPlugin(b3.plugin.Plugin):
                 # check if clients ip is in the disallowed range
                 if _b[0] <= _ip[0] <= _b[1]:
                     # client not allowed to connect
-                    self.debug('Client refused: %s - %s' % (client.name, client.ip))
+                    self.debug('Client refused: %s (%s)' % (client.ip, client.name))
                     message = "Netblocker: Client %s refused!" % client.name
-                    self.console.say(message)
-                    client.kick(silent=True)
+                    client.kick(message)
                     return False
 
     def getBanIps(self):
