@@ -9,6 +9,8 @@ will be kicked consequently.
 
 The plugin can handle only IPv4 type IP addresses and relies on the game/parser on providing that IP address to the plugin.
 
+__This plugin only works with source code versions of the bot, not with the windows installer version due to library issues.__
+
 ## Ranges
 
 The plugin can handle IP addresses or ranges in the following formats:
