@@ -28,7 +28,7 @@ __author__ = 'xlr8or'
 import b3
 import b3.events
 import b3.plugin
-import netblock
+import b3.extplugins.netblock as netblock
 
 # --------------------------------------------------------------------------------------------------
 class NetblockerPlugin(b3.plugin.Plugin):
@@ -67,7 +67,7 @@ class NetblockerPlugin(b3.plugin.Plugin):
             self.error(err)
         self.debug('Refused netblocks: %s' % self._blocks)
         try:
-            self._maxLevel = self.config.getint('settings', 'maxlevel')
+            self._maxLevel = self.config.get('settings', 'maxlevel')
         except Exception, err:
             self.error(err)
         self.debug('Maximum level affected: %s' % self._maxLevel)
