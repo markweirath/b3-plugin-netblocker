@@ -16,6 +16,6 @@ Find the plugin here: https://github.com/thomasleveil/b3-plugin-banlist
 
 ## notes
 
-If you ned support for the banlist plugin go to the appropriate section of the B3 forums.
+If you need support for the banlist plugin go to the appropriate section of the B3 forums.
 
 This section of the code is mearly an example on how this plugin can cooperate with the banlist plugin on IP based bans. 

@@ -41,11 +41,9 @@ echo "//    http://forum.bigbrotherbot.net/downloads/?sa=view;down=6\n";
 echo "//\n";
 echo "//------------------------------------------------------\n";
 echo "\n";
-echo "//<STEAM ID>     // <Playername> banned on <Date & Time>, reason: <Reason>\n";
+echo "//IP  <Playername> banned on <Date & Time>, reason: <Reason>\n";
 echo "\n";
 while ($row = mysql_fetch_assoc($rs_activebans)) {
-    //$text = substr($row['guid'], 0, 15) . '  // ';
-    //$text = $row['guid'] . '  // ';
     $text .= $ban['target_ip'] . '  ';
     $text .= $row['target_name'];
     $text .= ' banned on  ' . date('m/d/Y (H:i)',$row['time_add']);
