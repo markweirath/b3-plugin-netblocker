@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="B3-plugin-netblocker : IP (range) blocker plugin for BigBrotherBot">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>B3-plugin-netblocker</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/markweirath/b3-plugin-netblocker">View on GitHub</a>
+
+          <h1 id="project_title">B3-plugin-netblocker</h1>
+          <h2 id="project_tagline">IP (range) blocker plugin for BigBrotherBot</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/markweirath/b3-plugin-netblocker/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/markweirath/b3-plugin-netblocker/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="netblocker-plugin-for-b3" class="anchor" href="#netblocker-plugin-for-b3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Netblocker plugin for B3</h1>
+
+<p>This plugin is an ip (range) blocker. Do not mistake this plugin with a firewall, because it does not provide that kind
+of security. If you need to secure your system you should use a proper firewall.</p>
+
+<p>This plugin can be used to prevent clients from playing on your B3 enabled server. It checks the IP address against
+your list of blocked IP's when the client is authorized by B3. If the address is prohibited from connecting the client
+will be kicked consequently.</p>
+
+<p>The plugin can handle only IPv4 type IP addresses and relies on the game/parser on providing that IP address to the plugin.</p>
+
+<p><strong>This plugin only works with source code versions of the bot, not with the windows installer version due to library issues.</strong></p>
+
+<h2>
+<a id="ranges" class="anchor" href="#ranges" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ranges</h2>
+
+<p>The plugin can handle IP addresses or ranges in the following formats:</p>
+
+<ul>
+<li>single IP address: 127.0.0.1</li>
+<li>IP range: 127.0.0.1-127.0.0.100</li>
+<li>CIDR notation: 192.168.100.0/24</li>
+<li>combination of the above seperated by a comma (,)</li>
+</ul>
+
+<h3>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<pre><code>netblock: 127.0.0.1, 127.0.0.1-127.0.10.225, 168.0.0.0/8, 127.0/8
+</code></pre>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<ol>
+<li>copy the contents of the extplugins folder into your installations b3/extplugins folder.</li>
+<li>
+<p>add the plugin to your b3.xml config file:</p>
+
+<pre><code>&lt;plugin name="netblocker" config="@b3/extplugins/conf/netblocker.ini"/&gt;
+</code></pre>
+</li>
+<li><p>modify the netblocker.ini and add your unwanted IP's and ranges</p></li>
+<li>restart the bot</li>
+</ol>
+
+<hr>
+
+<p><em>This plugin makes use of the netblock module for python created by 'siebenmann' (<a href="https://github.com/siebenmann/python-netblock">https://github.com/siebenmann/python-netblock</a>)</em></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">B3-plugin-netblocker maintained by <a href="https://github.com/markweirath">markweirath</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
