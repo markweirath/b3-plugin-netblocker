@@ -7,9 +7,6 @@ This plugin can be used to prevent clients from playing on your B3 enabled serve
 your list of blocked IP's when the client is authorized by B3. If the address is prohibited from connecting the client
 will be kicked consequently.
 
-Furthermore this plugin checks current active bans and tempbans and the corresponding IP addresses. It will also refuse 
-those IP's aswell.
-
 The plugin can handle only IPv4 type IP addresses and relies on the game/parser on providing that IP address to the plugin.
 
 __This plugin only works with source code versions of the bot, not with the windows installer version due to library issues.__
